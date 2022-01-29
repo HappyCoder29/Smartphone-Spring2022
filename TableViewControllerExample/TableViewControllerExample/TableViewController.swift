@@ -40,6 +40,8 @@ class TableViewController: UITableViewController {
         // Configure the cell...
         cell.textLabel?.text = arr[indexPath.row]
         
+        // Adding some comment
+        
         return cell
     }
     
