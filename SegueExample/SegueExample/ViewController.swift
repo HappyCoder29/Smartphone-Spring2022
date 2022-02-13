@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SendDataBackDelegate {
+   
+    
 
     @IBOutlet weak var txtFirstName: UITextField!
     
@@ -30,9 +32,14 @@ class ViewController: UIViewController {
             let secondVC = segue.destination as! SecondViewController
             
             secondVC.welcomeStr = "Welcome \(txtFirstName.text!), \(txtLastName.text!)"
+            secondVC.sendDatabackDelegate = self
             
         }
         
+    }
+    
+    func sendData(str: String) {
+        txtFirstName.text = str
     }
 }
 
