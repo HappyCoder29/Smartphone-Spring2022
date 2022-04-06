@@ -51,7 +51,7 @@ extension ViewController {
                     seal.reject(response.error!)
                 }
                 
-                let currentWeatherModel = CurrentWeatherModel()
+                let currentWeatherModel = CurrentWeatherModel("", "")
                 //get data here
 
                 let currentWeatherArray = JSON(response.data!).arrayValue

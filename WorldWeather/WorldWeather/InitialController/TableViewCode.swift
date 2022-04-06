@@ -12,13 +12,18 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        guard let rows = citiesModel?.count else { return 1 }
+        return rows + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = cities[indexPath.row]
+    
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Current Location"
+        }else{
+            cell.textLabel?.text = citiesModel![indexPath.row - 1].city
+        }
         
         return cell
     }
