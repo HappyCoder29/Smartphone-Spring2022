@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WeatherTableViewCell" customModule="WorldWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-fa-7vo">
+                        <rect key="frame" x="5" y="5" width="185" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r72-ph-7zT">
+                        <rect key="frame" x="195" y="5" width="120" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="UEX-w3-kMO"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Get Weather"/>
+                        <connections>
+                            <action selector="getWeatherAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="B7T-mW-y67"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="r72-ph-7zT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="65g-PB-5Xu"/>
+                    <constraint firstAttribute="trailing" secondItem="r72-ph-7zT" secondAttribute="trailing" constant="5" id="7dZ-rE-abW"/>
+                    <constraint firstItem="fVU-fa-7vo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="FfM-NI-5mv"/>
+                    <constraint firstItem="r72-ph-7zT" firstAttribute="leading" secondItem="fVU-fa-7vo" secondAttribute="trailing" constant="5" id="SBl-o9-Bpy"/>
+                    <constraint firstAttribute="bottom" secondItem="r72-ph-7zT" secondAttribute="bottom" constant="5" id="a4x-fL-auS"/>
+                    <constraint firstItem="fVU-fa-7vo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="hAn-8F-DwF"/>
+                    <constraint firstAttribute="bottom" secondItem="fVU-fa-7vo" secondAttribute="bottom" constant="5" id="pln-bE-iAw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCity" destination="fVU-fa-7vo" id="SLW-WC-ijo"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="67"/>
+        </tableViewCell>
+    </objects>
+</document>

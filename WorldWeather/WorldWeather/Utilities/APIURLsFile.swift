@@ -10,4 +10,4 @@ import Foundation
 
 let locationAPIURL = "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey="
 
-let currentWeatherURL = "https://dataservice.accuweather.com/currentconditions/v1/2253217?apikey=RVdi5NBIUK9GIdSTYUMGFSKg4GcppCpa"
+let currentWeatherURL = "https://dataservice.accuweather.com/currentconditions/v1/"

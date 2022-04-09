@@ -8,10 +8,14 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SendWeatherDelegate {
+   
+    @IBOutlet weak var lblCity: UILabel!
     
-    let cities = ["Current Location", "Seattle", "Portland", "London", "Delhi", "Shanghai"]
+    @IBOutlet weak var imgIcon: UIImageView!
     
+    @IBOutlet weak var lblTemperature: UILabel!
+    @IBOutlet weak var lblWeatherForecast: UILabel!
     var citiesModel: [CurrentWeatherModel]?
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -28,6 +32,7 @@ class ViewController: UIViewController {
     }
     
     func initializeCities() -> [CurrentWeatherModel]{
+        let currentLocation = CurrentWeatherModel("Seattle", "2628285");
         let seattle = CurrentWeatherModel("Seattle", "2628285");
         let portland = CurrentWeatherModel("Portland", "2627656");
         let london = CurrentWeatherModel("London", "2532799");
@@ -36,6 +41,7 @@ class ViewController: UIViewController {
 
         var modelArr = [CurrentWeatherModel]()
         
+        modelArr.append(currentLocation)
         modelArr.append(seattle)
         modelArr.append(portland)
         modelArr.append(london)
@@ -46,20 +52,12 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func getLocation(_ sender: Any) {
-        locationManager.requestLocation()
-
-    }
-    
-    func getLocationURL(_ lat : String, _ lng : String) -> String {
-        let url = "\(locationAPIURL)\(apiKey)?q=\(lat),\(lng)"
-        return url
+    func sendWeatherData(_ currentWeatherModel: CurrentWeatherModel) {
+        lblCity.text = currentWeatherModel.city
+        lblWeatherForecast.text = currentWeatherModel.WeatherText
+        lblTemperature.text = "\(currentWeatherModel.Temperature) ℉"
+        imgIcon.image = UIImage(named: "\(currentWeatherModel.WeatherIcon)-s")
         
-    }
-    
-    func getCurrentWeatherURL(_ cityKey : String) -> String{
-        let url = "\(currentWeatherURL)\(cityKey)?apikey=\(apiKey)"
-        return url
     }
     
 

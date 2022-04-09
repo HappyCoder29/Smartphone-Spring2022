@@ -14,7 +14,7 @@ extension ViewController : CLLocationManagerDelegate{
         
         guard let location = locations.last else { return}
         
-        let lat = location.coordinate.longitude
+        let lat = location.coordinate.latitude
         let lng = location.coordinate.longitude
         
       
@@ -26,14 +26,15 @@ extension ViewController : CLLocationManagerDelegate{
             print(loc.state)
             print(loc.country)
             
-            let currentURL = self.getCurrentWeatherURL("\(loc.key)")
+            let currentURL = getCurrentWeatherURL("\(loc.key)")
             
-            self.getCurrentWeather(currentURL).done { currentWeatherModel in
+            getCurrentWeather(currentURL).done { currentWeatherModel in
                 currentWeatherModel.city = loc.city
                 print(currentWeatherModel.WeatherText)
                 print(currentWeatherModel.WeatherIcon)
                 print(currentWeatherModel.IsDayTime)
                 print(currentWeatherModel.Temperature)
+                
             }
             .catch { error in
                 print(error.localizedDescription)
